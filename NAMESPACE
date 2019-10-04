@@ -1,0 +1,4 @@
+export(RenewGLM_in,RenewGLM_out,datagenerator_in,datagenerator_out)
+
+import(MASS,stats)
+

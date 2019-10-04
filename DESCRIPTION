@@ -1,0 +1,11 @@
+Package: RenewGLM
+Type: Package
+Title: Renewable Estimation and Incremental Inference in Generalized Linear Models with Streaming Datasets
+Version: 0.1.0
+Author: Lan Luo and Peter X.-K. Song
+Maintainer: Lan Luo <luolsph@umich.edu>
+Description: This package updates the regression coefficients and their standard errors in generalized linear models as data batches arrive sequentially.
+License: GPL-2
+Depends: MASS, stats
+Encoding: UTF-8
+RoxygenNote: 6.0.1
