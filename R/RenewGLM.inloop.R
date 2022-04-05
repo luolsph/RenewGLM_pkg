@@ -1,4 +1,4 @@
-RenewGLM.inloop <-
+RenewGLM_in <-
 function(B, tempdatadir, type, init=NA, p, intercept=TRUE){
   sum2<-diag(0,p,p);
   s<-0
