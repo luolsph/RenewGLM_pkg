@@ -4,7 +4,7 @@
 \alias{RenewGLM.outloop}
 \title{Renewable GLM function processing data batches externally}
 \usage{
-RenewGLM.outloop(X, y, type, betahat, infomats, intercept, s, phi)
+RenewGLM_out(X, y, type, betahat, infomats, intercept, s, phi)
 }
 \arguments{
 \item{X}{covariate matrix for the current data batch}
@@ -38,10 +38,10 @@ beta<-c(0.2,-0.2,0.2,-0.2,0.2)
 infomats<-diag(0,p,p);
 betahat<-rep(0,p)
 for(b in 1:10){
- data<-datagenerator.outloop(beta,b,n,"binomial","cs",0.5)
+ data<-datagenerator_out(beta,b,n,"binomial","cs",0.5)
  y<-data[,1]
  X<-data[,-1]
- summary<-RenewGLM.outloop(X,y,"binomial",betahat,infomats,intercept=TRUE,s,phi)
+ summary<-RenewGLM_out(X,y,"binomial",betahat,infomats,intercept=TRUE,s,phi)
  betahat<-summary[[1]]
  infomats<-summary[[2]]
  rm(data)
