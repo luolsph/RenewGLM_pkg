@@ -4,7 +4,7 @@
 \alias{RenewGLM.inloop}
 \title{Renewable GLM function processing data batches internally}
 \usage{
-RenewGLM.inloop(B, tempdatadir, type, init = NA, p, intercept = TRUE)
+RenewGLM_in(B, tempdatadir, type, init = NA, p, intercept = TRUE)
 }
 \arguments{
 \item{B}{index for the terminal data batch}
@@ -33,8 +33,8 @@ n=N/B
 beta<-c(0.2,-0.2,0.2,-0.2,0.2)
 
 tempdatadir<-"~/Desktop/tempdata"
-datagenerator.inloop(beta=beta, n=n, p=p, B=B, family="binomial", construct="cs",
+datagenerator_in(beta=beta, n=n, p=p, B=B, family="binomial", construct="cs",
     rho=0.5, tempdatadir=tempdatadir)
-RenewGLM.inloop(B, tempdatadir=tempdatadir, "binomial", p=p, intercept=TRUE)
+RenewGLM_in(B, tempdatadir=tempdatadir, "binomial", p=p, intercept=TRUE)
 unlink(tempdatadir)
 }
