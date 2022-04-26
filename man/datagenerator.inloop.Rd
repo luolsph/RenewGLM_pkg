@@ -4,7 +4,7 @@
 \alias{datagenerator.inloop}
 \title{This function is used to generate B data batches each time to illustrate the usage of RenewGLM function}
 \usage{
-datagenerator.inloop(beta, n, p, B, family, construct, rho, tempdatadir,
+datagenerator_in(beta, n, p, B, family, construct, rho, tempdatadir,
   categorical = FALSE, seed = NA)
 }
 \arguments{
