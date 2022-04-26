@@ -4,7 +4,7 @@
 \alias{datagenerator.outloop}
 \title{This function is used to generate one data batch each time to illustrate the usage of RenewGLM function}
 \usage{
-datagenerator.outloop(beta, b, n, family, construct, rho, categorical = FALSE,
+datagenerator_out(beta, b, n, family, construct, rho, categorical = FALSE,
   seed = NA)
 }
 \arguments{
