@@ -33,9 +33,9 @@ n=N/B
 beta<-c(0.2,-0.2,0.2,-0.2,0.2)
 
 tempdatadir<-"~/Desktop/tempdata"
-datagenerator.inloop(beta=beta,n=n, p=p, B=B, family="binomial", construct="cs",
+datagenerator_in(beta=beta,n=n, p=p, B=B, family="binomial", construct="cs",
     rho=0.5, tempdatadir=tempdatadir)
-RenewGLM.inloop(B, tempdatadir=tempdatadir, "binomial", p=p, intercept=TRUE)
+RenewGLM_in(B, tempdatadir=tempdatadir, "binomial", p=p, intercept=TRUE)
 unlink(tempdatadir)
 
 #Processing data batches externally
@@ -47,10 +47,10 @@ beta<-c(0.2,-0.2,0.2,-0.2,0.2)
 infomats<-diag(0,p,p);
 betahat<-rep(0,p)
 for(b in 1:10){
- data<-datagenerator.outloop(beta,b,n,"binomial","cs",0.5)
+ data<-datagenerator_out(beta,b,n,"binomial","cs",0.5)
  y<-data[,1]
  X<-data[,-1]
- summary<-RenewGLM.outloop(X,y,"binomial",betahat,infomats,intercept=TRUE,s,phi)
+ summary<-RenewGLM_out(X,y,"binomial",betahat,infomats,intercept=TRUE,s,phi)
  betahat<-summary[[1]]
  infomats<-summary[[2]]
  rm(data)
