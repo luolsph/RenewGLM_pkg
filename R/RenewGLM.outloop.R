@@ -1,7 +1,7 @@
 RenewGLM_out <-
 function(X, y, type, betahat, infomats, intercept, s, phi){
-  tol=1e-6;
-  max_iter=100;
+  tol <- 1e-6;
+  max_iter <- 100;
   
 #  if(intercept==TRUE){X<-cbind(1,X)};
   
@@ -11,7 +11,7 @@ function(X, y, type, betahat, infomats, intercept, s, phi){
   
   #record W in a list form rather than a matrix to simplify calculation
   W <- invlinkdiv(X, betahat_old, type=type)
-  H<-cp(X,y,W)
+  H <- cp(X,y,W)
   
   U=chol(infomats+H)
   L=t(U)
@@ -50,19 +50,19 @@ function(X, y, type, betahat, infomats, intercept, s, phi){
 cp <-
 function(X, y, w){
   if (length(y)==1){
-    H<-w*tcrossprod(X,X)
+    H <- w*tcrossprod(X,X)
   }else{
-    H<-crossprod(sqrt(w)*X)
+    H <- crossprod(sqrt(w)*X)
   }
 }
 
 invlink <-
 function(X, beta, type){
-  if (length(beta)==1){
-    eta <- X * beta
-  }else{
-    eta<-drop(X%*%beta)
-  }
+#  if (length(beta)==1){
+#    eta <- X * beta
+#  }else{
+    eta <- drop(X %*% beta)
+#  }
   if(type=="gaussian"){ out <- eta }
   if(type=="binomial"){ out <- exp(eta)/(1 + exp(eta)) }
   if(type=="poisson") { out <- exp(eta) }
@@ -71,11 +71,11 @@ function(X, beta, type){
 
 invlinkdiv <-
 function(X, beta, type){
-  if (length(beta)==1){
-    eta <- X * beta
-  }else{
-    eta<-drop(X%*%beta)
-  }
+#  if (length(beta)==1){
+#    eta <- X * beta
+#  }else{
+    eta <- drop(X %*% beta)
+#  }
   if(type=="gaussian"){ out <- 1 }
   if(type=="binomial"){ out <- exp(eta)/(1 + exp(eta))^2 }
   if(type=="poisson") { out <- exp(eta) }
