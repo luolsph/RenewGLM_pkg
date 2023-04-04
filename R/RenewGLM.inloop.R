@@ -14,7 +14,7 @@ function(B, tempdatadir, type, init=NA, p, intercept=TRUE){
     load(paste(tempdatadir,"/Simdata",b,".RData",sep=""))
     if(intercept==TRUE){X<-cbind(1,X)}
     
-    betahat_old=betahat;
+    betahat_old <- betahat
     
     #record W in a list form rather than a matrix to simplify calculation
     W<-invlinkdiv(X,betahat_old,type=type)
@@ -71,11 +71,11 @@ function(X, y, w){
 
 invlink <-
 function(X, beta, type){
-  if (length(beta)==1){
-    eta<-X*beta
-  }else{
-    eta<-drop(X%*%beta)
-  }
+ # if (length(beta)==1){
+ #   eta<-X*beta
+ # }else{
+    eta <- drop(X%*%beta)
+ # }
   if(type=="gaussian"){ out <- eta }
   if(type=="binomial"){ out <- exp(eta)/(1 + exp(eta)) }
   if(type=="poisson") { out <- exp(eta) }
@@ -84,11 +84,11 @@ function(X, beta, type){
 
 invlinkdiv <-
 function(X, beta, type){
-  if (length(beta)==1){
-    eta<-X*beta
-  }else{
+ # if (length(beta)==1){
+ #   eta<-X*beta
+ # }else{
     eta<-drop(X%*%beta)
-  }
+ # }
   if(type=="gaussian"){ out <- 1 }
   if(type=="binomial"){ out <- exp(eta)/(1 + exp(eta))^2 }
   if(type=="poisson") { out <- exp(eta) }
